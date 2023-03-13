@@ -46,7 +46,7 @@ datasource db {
 // }
 
 // model User {
-//     id            String       @id @default(cuid())
+//     id            String       @id @default(cuid()) @map("_id")
 //     name          String?
 //     email         String?      @unique
 //     emailVerified DateTime?
@@ -67,13 +67,13 @@ datasource db {
 // the models above are from the T3 stack template
 
 model OpenGptApp {
-    id          String  @id @default(cuid())
+    id          String  @id @default(cuid()) @map("_id")
     name        String  @unique
     description String
     icon        String // for example emoji
     hint        String?
-    demoInput   String  @db.VarChar(1000)
-    prompt      String  @db.VarChar(10000)
+    demoInput   String  
+    prompt      String  
     usedCount   BigInt  @default(1)
 
     createdAt DateTime @default(now())
